@@ -1,4 +1,6 @@
 <script>
+  import Image from "./image.svelte";
+
   import Txt from "./txt.svelte";
 
   export let onClose;
@@ -45,7 +47,12 @@
           <img src={item.icon} class="icon" />
           {item.name}
           {#if currentOpenItem == item.name}
-            <Txt {item} onClose={(e) => closeItem(e)} />
+            {#if item.type == "txt"}
+              <Txt {item} onClose={(e) => closeItem(e)} />
+            {/if}
+            {#if item.type == "image"}
+              <Image {item} onClose={(e) => closeItem(e)} />
+            {/if}
           {/if}
         </div>
       {/each}

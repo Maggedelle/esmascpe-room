@@ -52,10 +52,10 @@ export let programs = [
     type: "folder",
     items: [
       {
-        name: "haha:D.png",
-        icon: "/txt.png",
+        name: "haha:D.jpg",
+        icon: "/image.png",
         type: "image",
-        text: "en vigtig tekst.",
+        src: "/Meme1.png",
       },
     ],
     hasPass: false,
