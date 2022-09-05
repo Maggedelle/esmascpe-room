@@ -1,0 +1,70 @@
+export let programs = [
+  {
+    x: 70,
+    y: 70,
+    label: "Papirkurv",
+    image: "./public/papirkurv.png",
+    type: "folder",
+    items: [],
+    hasPass: false,
+  },
+  {
+    x: 20,
+    y: 20,
+    label: "hemmeligheder",
+    type: "folder",
+    items: [
+      {
+        name: "VIGTTG!.txt",
+        icon: "./public/txt.png",
+        type: "txt",
+        text: "en vigtig tekst.",
+      },
+    ],
+    hasPass: true,
+    passHasBeenCracked: false,
+    pass: "h7d6",
+    image: "./public/folder-password.png",
+  },
+  {
+    x: 20,
+    y: 40,
+    label: "Memes",
+    image: "./public/folder.png",
+    type: "folder",
+    items: [],
+    hasPass: false,
+  },
+  {
+    x: 40,
+    y: 60,
+    label: "beerpong plan",
+    image: "./public/folder.png",
+    type: "folder",
+    items: [
+      {
+        name: "planer.txt",
+        icon: "./public/txt.png",
+        type: "txt",
+        text: "1. Sørg for dårlige modstandere. \n2. Drik tilstrækkelige mængder af alkohol. \n3. Ram kopperne.",
+      },
+    ],
+    hasPass: false,
+  },
+  {
+    x: 80,
+    y: 80,
+    label: "koder",
+    image: "./public/folder.png",
+    type: "folder",
+    items: [
+      {
+        name: "til esbjerg.txt",
+        icon: "./public/txt.png",
+        type: "txt",
+        text: "...Fordi Esbjerg altid glemmer vores koder... \nKode til hemmeligheder: konge + springer",
+      },
+    ],
+    hasPass: false,
+  },
+];
