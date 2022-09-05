@@ -2,6 +2,11 @@
 Et program til ESMA efterårsfest 2022. Programmet bruges i sammenhæng med et escape room.
 
 
+## Opsætning
+
+Kør ```npm install```
+Derefter ```npm run dev```
+
 ## Idéer
 
 
