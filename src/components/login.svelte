@@ -2,11 +2,14 @@
   let input = "";
   let wrongPass = false;
   export let currentScreen;
+  let success = new Audio("/unlock_sound.mp3");
+  let fail = new Audio("/fail_sound.mp3");
   function onLogin() {
-    console.log(input);
     if (input == "1234") {
+      success.play();
       currentScreen = "desktop";
     } else {
+      fail.play();
       wrongPass = true;
       input = "";
     }

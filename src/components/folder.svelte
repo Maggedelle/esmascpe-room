@@ -12,15 +12,27 @@
   function closeItem(e) {
     e.stopPropagation();
     currentOpenItem = "";
+    let audio = new Audio("/click_sound.mp3");
+    audio.play();
   }
 
   function enterPass() {
     if (folder.pass.includes(passInput)) {
       folder.passHasBeenCracked = true;
+      let audio = new Audio("/unlock_sound.mp3");
+      audio.play();
     } else {
       wrongPass = true;
       passInput = "";
+      let audio = new Audio("/fail_sound.mp3");
+      audio.play();
     }
+  }
+
+  function onItemOpen(item) {
+    currentOpenItem = item.name;
+    let audio = new Audio("/click_sound.mp3");
+    audio.play();
   }
 </script>
 
@@ -29,7 +41,7 @@
   {#if folder.hasPass == false || folder.passHasBeenCracked == true}
     <div class="items">
       {#each folder.items as item}
-        <div class="item" on:click={() => (currentOpenItem = item.name)}>
+        <div class="item" on:click={() => onItemOpen(item)}>
           <img src={item.icon} class="icon" />
           {item.name}
           {#if currentOpenItem == item.name}

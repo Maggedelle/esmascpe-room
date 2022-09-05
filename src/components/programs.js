@@ -50,7 +50,14 @@ export let programs = [
     label: "Memes",
     image: "/folder.png",
     type: "folder",
-    items: [],
+    items: [
+      {
+        name: "haha:D.png",
+        icon: "/txt.png",
+        type: "image",
+        text: "en vigtig tekst.",
+      },
+    ],
     hasPass: false,
   },
   {
