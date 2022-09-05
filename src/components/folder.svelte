@@ -15,7 +15,7 @@
   }
 
   function enterPass() {
-    if (passInput == folder.pass) {
+    if (folder.pass.includes(passInput)) {
       folder.passHasBeenCracked = true;
     } else {
       wrongPass = true;
