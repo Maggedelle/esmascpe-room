@@ -17,7 +17,7 @@
   <div class="header">
     <div class="headerText">ESMA</div>
     <div class="profilePic">
-      <img src="./public/profilpic.png" />
+      <img src="/profilpic.png" />
     </div>
     <div class="passwordContainer">
       {#if wrongPass == false}

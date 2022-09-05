@@ -3,7 +3,7 @@ export let programs = [
     x: 70,
     y: 70,
     label: "Papirkurv",
-    image: "./public/papirkurv.png",
+    image: "/papirkurv.png",
     type: "folder",
     items: [],
     hasPass: false,
@@ -16,7 +16,7 @@ export let programs = [
     items: [
       {
         name: "VIGTTG!.txt",
-        icon: "./public/txt.png",
+        icon: "/txt.png",
         type: "txt",
         text: "en vigtig tekst.",
       },
@@ -24,7 +24,7 @@ export let programs = [
     hasPass: true,
     passHasBeenCracked: false,
     pass: ["konge", "kongen", "konger", "king", "kongerne", "kong", "kings"],
-    image: "./public/folder-password.png",
+    image: "/folder-password.png",
   },
   {
     x: 34,
@@ -34,7 +34,7 @@ export let programs = [
     items: [
       {
         name: "VIGTTG!.txt",
-        icon: "./public/txt.png",
+        icon: "/txt.png",
         type: "txt",
         text: "en vigtig tekst.",
       },
@@ -42,13 +42,13 @@ export let programs = [
     hasPass: true,
     passHasBeenCracked: false,
     pass: ["test"],
-    image: "./public/folder-password.png",
+    image: "/folder-password.png",
   },
   {
     x: 20,
     y: 40,
     label: "Memes",
-    image: "./public/folder.png",
+    image: "/folder.png",
     type: "folder",
     items: [],
     hasPass: false,
@@ -57,12 +57,12 @@ export let programs = [
     x: 40,
     y: 60,
     label: "beerpong plan",
-    image: "./public/folder.png",
+    image: "/folder.png",
     type: "folder",
     items: [
       {
         name: "planer.txt",
-        icon: "./public/txt.png",
+        icon: "/txt.png",
         type: "txt",
         text: "1. Sørg for dårlige modstandere. \n2. Drik tilstrækkelige mængder af alkohol. \n3. Ram kopperne.",
       },
@@ -73,12 +73,12 @@ export let programs = [
     x: 80,
     y: 80,
     label: "koder",
-    image: "./public/folder.png",
+    image: "/folder.png",
     type: "folder",
     items: [
       {
         name: "til esbjerg.txt",
-        icon: "./public/txt.png",
+        icon: "/txt.png",
         type: "txt",
         text: "...Fordi Esbjerg altid glemmer vores koder... \nKode til hemmeligheder: H7",
       },
