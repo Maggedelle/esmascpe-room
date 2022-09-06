@@ -20,3 +20,5 @@ som man så kan bruge til at gætte koden. Måske er der et tal på de 3 objekte
 til at gætte koden.
 ### 3.
 noget med en papvin i værelset. Måske står der noget i under papvinen?
+### 4.
+et lydklip i programmet, der siger et eller andet som man bruge til noget.
