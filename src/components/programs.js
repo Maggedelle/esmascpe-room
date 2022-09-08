@@ -5,7 +5,14 @@ export let programs = [
     label: "Papirkurv",
     image: "/papirkurv.png",
     type: "folder",
-    items: [],
+    items: [
+      {
+        name: "Ansøgning_thomas.txt",
+        icon: "/txt.png",
+        type: "txt",
+        text: "Må jeg være en del af ESMA?",
+      },
+    ],
     hasPass: false,
   },
   {
@@ -89,6 +96,12 @@ export let programs = [
         type: "txt",
         text: "...Fordi Esbjerg altid glemmer vores koder... \nKode til hemmeligheder: H7",
       },
+      {
+        name: "til bestyrelsen.mp3",
+        icon: "/folder.png",
+        type: "audio",
+        src: "/papvin.mp3",
+      }
     ],
     hasPass: false,
   },

@@ -1,6 +1,6 @@
 <script>
   import Image from "./image.svelte";
-
+  import Audioplayer from "./audio.svelte";
   import Txt from "./txt.svelte";
 
   export let onClose;
@@ -52,6 +52,9 @@
             {/if}
             {#if item.type == "image"}
               <Image {item} onClose={(e) => closeItem(e)} />
+            {/if}
+            {#if item.type == "audio"}
+              <Audioplayer {item} onClose={(e) => closeItem(e)} />
             {/if}
           {/if}
         </div>
