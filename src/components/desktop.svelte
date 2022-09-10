@@ -3,18 +3,8 @@
   import Program from "./program.svelte";
   import { programs } from "./programs";
 
-  let currentFolder = null;
   let currentProgram = null;
   let audio = new Audio("/click_sound.mp3");
-
-  function openFolder(folder) {
-    audio.play();
-    if (currentFolder == folder) {
-      currentFolder = null;
-    } else {
-      currentFolder = folder;
-    }
-  }
 
   function executeProgram(program) {
     audio.play();
