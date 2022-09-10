@@ -98,10 +98,10 @@ export let programs = [
       },
       {
         name: "til bestyrelsen.mp3",
-        icon: "/folder.png",
+        icon: "/mp3.png",
         type: "audio",
         src: "/papvin.mp3",
-      }
+      },
     ],
     hasPass: false,
   },
