@@ -1,4 +1,5 @@
 <script>
+  import Amongus from "./amongus.svelte";
   import Folder from "./folder.svelte";
   import Program from "./program.svelte";
   import { programs } from "./programs";
@@ -30,6 +31,9 @@
   {#if currentProgram != null}
     {#if currentProgram.type == "folder"}
       <Folder onClose={() => executeProgram(null)} folder={currentProgram} />
+    {/if}
+    {#if currentProgram.type == "among-us"}
+      <Amongus onClose={() => executeProgram(null)} program={currentProgram} />
     {/if}
   {/if}
 </div>

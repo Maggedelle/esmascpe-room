@@ -121,6 +121,6 @@ export let programs = [
     hasPass: true,
     passHasBeenCracked: false,
     pass: ["test"],
-    image: "/folder-password.png",
+    image: "/amongus.png",
   },
 ];
