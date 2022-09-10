@@ -105,4 +105,22 @@ export let programs = [
     ],
     hasPass: false,
   },
+  {
+    x: 2,
+    y: 90,
+    label: "among us",
+    type: "among-us",
+    items: [
+      {
+        name: "VIGTTG!.txt",
+        icon: "/txt.png",
+        type: "txt",
+        text: "en vigtig tekst.",
+      },
+    ],
+    hasPass: true,
+    passHasBeenCracked: false,
+    pass: ["test"],
+    image: "/folder-password.png",
+  },
 ];

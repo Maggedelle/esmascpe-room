@@ -4,7 +4,7 @@
   import { programs } from "./programs";
 
   let currentFolder = null;
-
+  let currentProgram = null;
   let audio = new Audio("/click_sound.mp3");
 
   function openFolder(folder) {
@@ -15,6 +15,15 @@
       currentFolder = folder;
     }
   }
+
+  function executeProgram(program) {
+    audio.play();
+    if (currentProgram == program) {
+      currentProgram = null;
+    } else {
+      currentProgram = program;
+    }
+  }
 </script>
 
 <div>
@@ -23,12 +32,14 @@
       x={program.x}
       y={program.y}
       label={program.label}
-      onClick={() => openFolder(program)}
+      onClick={() => executeProgram(program)}
       image={program.image}
     />
   {/each}
 
-  {#if currentFolder != null}
-    <Folder onClose={() => openFolder(null)} folder={currentFolder} />
+  {#if currentProgram != null}
+    {#if currentProgram.type == "folder"}
+      <Folder onClose={() => executeProgram(null)} folder={currentProgram} />
+    {/if}
   {/if}
 </div>
