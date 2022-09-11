@@ -141,6 +141,7 @@
       context.font = "60px Georgia";
       context.textAlign = "center";
       context.textBaseline = "middle";
+      context.fillStyle = points[i].color;
       context.fillText(
         points[i].label,
         points[i].x + 100 / 2,
