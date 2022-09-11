@@ -8,41 +8,163 @@
   let context;
 
   let isMouseDown = false;
+  let lastClickedPoint;
+  let connectedPoints = [];
+
   let startPoint = { x: 0, y: 0 };
+  let points = [
+    {
+      id: 0,
+      label: "1",
+      x: 30,
+      y: 50,
+    },
+    {
+      id: 1,
+      label: "2",
+      x: 80,
+      y: 50,
+    },
+    {
+      id: 2,
+      label: "3",
+      x: 130,
+      y: 50,
+    },
+    {
+      id: 3,
+      label: "4",
+      x: 180,
+      y: 50,
+    },
+    {
+      id: 4,
+      label: "5",
+      x: 230,
+      y: 50,
+    },
+    {
+      id: 5,
+      label: "6",
+      x: 280,
+      y: 50,
+    },
+    {
+      id: 6,
+      label: "1",
+      x: 30,
+      y: 300,
+    },
+    {
+      id: 7,
+      label: "2",
+      x: 80,
+      y: 300,
+    },
+    {
+      id: 8,
+      label: "3",
+      x: 130,
+      y: 300,
+    },
+    {
+      id: 9,
+      label: "4",
+      x: 180,
+      y: 300,
+    },
+    {
+      id: 10,
+      label: "5",
+      x: 230,
+      y: 300,
+    },
+    {
+      id: 11,
+      label: "6",
+      x: 280,
+      y: 300,
+    },
+  ];
+
   function onMouseMove(e) {
     context.clearRect(0, 0, 1000, 1000);
     if (isMouseDown) {
       context.beginPath();
-      console.log(e);
       context.moveTo(startPoint.x, startPoint.y);
       context.lineTo(e.offsetX, e.offsetY);
       context.stroke();
     }
+
+    connectedPoints.forEach((point) => {
+      context.beginPath();
+      context.moveTo(point.a.x, point.a.y);
+      context.lineTo(point.b.x, point.b.y);
+      context.stroke();
+    });
     drawUI();
   }
 
   function drawUI() {
     context.font = "30px Arial";
-    context.fillText("1", 30, 50);
-    context.fillText("2", 80, 50);
-    context.fillText("3", 130, 50);
-    context.fillText("4", 180, 50);
-    context.fillText("5", 230, 50);
-    context.fillText("6", 280, 50);
-    context.fillText("1", 30, 300);
-    context.fillText("2", 80, 300);
-    context.fillText("3", 130, 300);
-    context.fillText("4", 180, 300);
-    context.fillText("5", 230, 300);
-    context.fillText("6", 280, 300);
+    for (let i = 0; i < points.length; i++) {
+      context.fillText(points[i].label, points[i].x, points[i].y);
+    }
+  }
+
+  function collisionDetection(e) {
+    let clickedPoint;
+    points.forEach((point) => {
+      if (
+        !(
+          point.y + 20 < e.offsetY ||
+          point.y > e.offsetY + 20 ||
+          point.x + 20 < e.offsetX ||
+          point.x > e.offsetX + 20
+        )
+      ) {
+        clickedPoint = point;
+      }
+    });
+
+    return clickedPoint;
   }
 
   function onMouseDown(e) {
-    isMouseDown = true;
     startPoint = { x: e.offsetX, y: e.offsetY };
+    let point = collisionDetection(e);
+    if (point != null) {
+      isMouseDown = true;
+      lastClickedPoint = point;
+    }
   }
-  function onMouseUp() {
+
+  function onMouseUp(e) {
     isMouseDown = false;
+    let point = collisionDetection(e);
+
+    if (point != null && lastClickedPoint != null) {
+      addConnectedPoint(lastClickedPoint, point);
+    }
+
+    lastClickedPoint = null;
+  }
+
+  function addConnectedPoint(a, b) {
+    const existingPoint1 = connectedPoints.findIndex(
+      (x) => x.a.id == a.id || x.b.id == a.id
+    );
+
+    if (existingPoint1 != -1) {
+      connectedPoints.splice(existingPoint1, 1);
+    }
+    const existingPoint2 = connectedPoints.findIndex(
+      (x) => x.a.id == b.id || x.b.id == b.id
+    );
+    if (existingPoint2 != -1) {
+      connectedPoints.splice(existingPoint2, 1);
+    }
+    connectedPoints.push({ a: a, b: b });
   }
 
   onMount(() => {
@@ -57,27 +179,7 @@
 
 <div class="base">
   <div class="close" on:click={onClose}>X</div>
-  <canvas width="1000" height="1000" bind:this={canvas}>
-    <div class="container">
-      <div class="numbers">
-        <p>1</p>
-        <p>2</p>
-        <p>3</p>
-        <p>4</p>
-        <p>5</p>
-        <p>6</p>
-      </div>
-
-      <div class="outlets">
-        <p>1</p>
-        <p>2</p>
-        <p>3</p>
-        <p>4</p>
-        <p>5</p>
-        <p>6</p>
-      </div>
-    </div>
-  </canvas>
+  <canvas width="1000" height="1000" bind:this={canvas} />
 </div>
 
 <style>
@@ -87,30 +189,6 @@
     background-color: white;
     z-index: 100;
     position: fixed;
-  }
-
-  .container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 20rem;
-  }
-
-  .numbers {
-    display: flex;
-    flex-direction: row;
-    gap: 4rem;
-    font-size: 5rem;
-    cursor: pointer;
-  }
-
-  .outlets {
-    display: flex;
-    flex-direction: row;
-    gap: 4rem;
-    font-size: 5rem;
-    cursor: pointer;
   }
 
   .close {
