@@ -123,8 +123,8 @@
       context.lineWidth = 20;
 
       context.beginPath();
-      context.moveTo(point.a.x, point.a.y);
-      context.lineTo(point.b.x, point.b.y);
+      context.moveTo(point.a.x + 50, point.a.y + 50);
+      context.lineTo(point.b.x + 50, point.b.y + 50);
       context.strokeStyle = "black";
       context.stroke();
     });
