@@ -15,75 +15,87 @@
   let points = [
     {
       id: 0,
-      label: "1",
+      label: "*",
       x: 30,
-      y: 50,
+      y: 150,
+      color: "red",
     },
     {
       id: 1,
-      label: "2",
-      x: 80,
-      y: 50,
+      label: "*",
+      x: 180,
+      y: 150,
+      color: "green",
     },
     {
       id: 2,
-      label: "3",
-      x: 130,
-      y: 50,
+      label: "*",
+      x: 330,
+      y: 150,
+      color: "blue",
     },
     {
       id: 3,
-      label: "4",
-      x: 180,
-      y: 50,
+      label: "*",
+      x: 480,
+      y: 150,
+      color: "yellow",
     },
     {
       id: 4,
-      label: "5",
-      x: 230,
-      y: 50,
+      label: "*",
+      x: 630,
+      y: 150,
+      color: "pink",
     },
     {
       id: 5,
-      label: "6",
-      x: 280,
-      y: 50,
+      label: "*",
+      x: 780,
+      color: "white",
+      y: 150,
     },
     {
       id: 6,
       label: "1",
+      color: "white",
       x: 30,
-      y: 300,
+      y: 500,
     },
     {
       id: 7,
       label: "2",
-      x: 80,
-      y: 300,
+      x: 180,
+      y: 500,
+      color: "white",
     },
     {
       id: 8,
       label: "3",
-      x: 130,
-      y: 300,
+      x: 330,
+      y: 500,
+      color: "white",
     },
     {
       id: 9,
       label: "4",
-      x: 180,
-      y: 300,
+      x: 480,
+      y: 500,
+      color: "white",
     },
     {
       id: 10,
       label: "5",
-      x: 230,
-      y: 300,
+      x: 630,
+      y: 500,
+      color: "white",
     },
     {
       id: 11,
       label: "6",
-      x: 280,
-      y: 300,
+      x: 780,
+      y: 500,
+      color: "white",
     },
   ];
 
@@ -103,35 +115,53 @@
       context.beginPath();
       context.moveTo(startPoint.x, startPoint.y);
       context.lineTo(e.offsetX, e.offsetY);
+      context.lineWidth = 20;
+      context.strokeStyle = "black";
       context.stroke();
     }
-
     connectedPoints.forEach((point) => {
+      context.lineWidth = 20;
+
       context.beginPath();
       context.moveTo(point.a.x, point.a.y);
       context.lineTo(point.b.x, point.b.y);
+      context.strokeStyle = "black";
       context.stroke();
     });
     drawUI();
   }
 
   function drawUI() {
-    context.font = "30px Arial";
     for (let i = 0; i < points.length; i++) {
-      context.fillText(points[i].label, points[i].x, points[i].y);
+      context.beginPath();
+      context.lineWidth = 5;
+      context.strokeStyle = points[i].color;
+      context.rect(points[i].x, points[i].y, 100, 100);
+      context.stroke();
+      context.font = "60px Georgia";
+      context.textAlign = "center";
+      context.textBaseline = "middle";
+      context.fillText(
+        points[i].label,
+        points[i].x + 100 / 2,
+        points[i].y + 100 / 2
+      );
     }
   }
 
   function collisionDetection(e) {
     let clickedPoint;
-    points.forEach((point) => {
+    let elemLeft = canvas.offsetLeft + canvas.clientLeft;
+    let elemTop = canvas.offsetTop + canvas.clientTop;
+    var x = e.pageX - elemLeft,
+      y = e.pageY - elemTop;
+
+    points.forEach(function (point) {
       if (
-        !(
-          point.y + 20 < e.offsetY ||
-          point.y > e.offsetY + 20 ||
-          point.x + 20 < e.offsetX ||
-          point.x > e.offsetX + 20
-        )
+        y > point.y &&
+        y < point.y + 100 &&
+        x > point.x &&
+        x < point.x + 100
       ) {
         clickedPoint = point;
       }
@@ -213,7 +243,12 @@
 
 <div class="base">
   <div class="close" on:click={onClose}>X</div>
-  <canvas width="1000" height="1000" bind:this={canvas} />
+  <canvas
+    width="1200"
+    height="600"
+    bind:this={canvas}
+    style="background: url('/public/grey.jpg')"
+  />
 </div>
 
 <style>
