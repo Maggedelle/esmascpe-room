@@ -185,7 +185,7 @@
 <style>
   .base {
     min-width: 70rem;
-    min-height: 60rem;
+    max-height: 40rem;
     background-color: white;
     z-index: 100;
     position: fixed;
