@@ -3,7 +3,7 @@
 
   export let onClose;
   export let program;
-
+  export let onRiddleCompleted;
   let canvas;
   let context;
 
@@ -87,6 +87,16 @@
     },
   ];
 
+  //Combination is by ID
+  let correctCombination = [
+    { from: 0, to: 11 },
+    { from: 1, to: 6 },
+    { from: 2, to: 8 },
+    { from: 3, to: 7 },
+    { from: 4, to: 9 },
+    { from: 5, to: 10 },
+  ];
+
   function onMouseMove(e) {
     context.clearRect(0, 0, 1000, 1000);
     if (isMouseDown) {
@@ -165,6 +175,30 @@
       connectedPoints.splice(existingPoint2, 1);
     }
     connectedPoints.push({ a: a, b: b });
+
+    if (connectedPoints.length == 6) {
+      checkForRightCombination();
+    }
+  }
+
+  function checkForRightCombination() {
+    let correctCombinationCount = 0;
+    correctCombination.forEach((combination) => {
+      const existingPoint1 = connectedPoints.findIndex(
+        (x) => x.a.id == combination.from && x.b.id == combination.to
+      );
+      const existingPoint2 = connectedPoints.findIndex(
+        (x) => x.a.id == combination.to && x.b.id == combination.from
+      );
+
+      if (existingPoint1 != -1 || existingPoint2 != -1) {
+        correctCombinationCount++;
+      }
+    });
+
+    if (correctCombinationCount == 6) {
+      onRiddleCompleted();
+    }
   }
 
   onMount(() => {

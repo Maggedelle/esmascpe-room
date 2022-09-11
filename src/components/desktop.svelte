@@ -4,8 +4,11 @@
   import Program from "./program.svelte";
   import { programs } from "./programs";
 
+  export let backgroundType;
+
   let currentProgram = null;
   let audio = new Audio("/click_sound.mp3");
+  let success = new Audio("/unlock_sound.mp3");
 
   function executeProgram(program) {
     audio.play();
@@ -14,6 +17,12 @@
     } else {
       currentProgram = program;
     }
+  }
+
+  function onAmongUsCompleted() {
+    success.play();
+    executeProgram(null);
+    backgroundType = "green";
   }
 </script>
 
@@ -33,7 +42,11 @@
       <Folder onClose={() => executeProgram(null)} folder={currentProgram} />
     {/if}
     {#if currentProgram.type == "among-us"}
-      <Amongus onClose={() => executeProgram(null)} program={currentProgram} />
+      <Amongus
+        onRiddleCompleted={onAmongUsCompleted}
+        onClose={() => executeProgram(null)}
+        program={currentProgram}
+      />
     {/if}
   {/if}
 </div>
