@@ -97,8 +97,8 @@ export let programs = [
         src: "/papvin.mp3",
       },
       {
-        name: "test",
-        icon: "/folder.png",
+        name: "privat",
+        icon: "/folder-password.png",
         type: "folder",
         items: [
           {
@@ -108,7 +108,8 @@ export let programs = [
             text: "...Fordi Esbjerg altid glemmer vores koder... \nKode til hemmeligheder: H7",
           },
         ],
-        hasPass: false,
+        hasPass: true,
+        pass: ["esmato"],
       },
     ],
     hasPass: false,
