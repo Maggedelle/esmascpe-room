@@ -5,6 +5,7 @@
 
   export let onClose;
   export let folder;
+  export let onOpenNewFolder;
 
   let currentOpenItem = "";
 
@@ -32,9 +33,13 @@
   }
 
   function onItemOpen(item) {
-    currentOpenItem = item.name;
     let audio = new Audio("/click_sound.mp3");
     audio.play();
+    if (item.type != "folder") {
+      currentOpenItem = item.name;
+    } else {
+      onOpenNewFolder(item);
+    }
   }
 </script>
 

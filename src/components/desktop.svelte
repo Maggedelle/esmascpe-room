@@ -39,7 +39,11 @@
 
   {#if currentProgram != null}
     {#if currentProgram.type == "folder"}
-      <Folder onClose={() => executeProgram(null)} folder={currentProgram} />
+      <Folder
+        onClose={() => executeProgram(null)}
+        folder={currentProgram}
+        onOpenNewFolder={executeProgram}
+      />
     {/if}
     {#if currentProgram.type == "among-us"}
       <Amongus

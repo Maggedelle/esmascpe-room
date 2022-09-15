@@ -91,16 +91,24 @@ export let programs = [
     type: "folder",
     items: [
       {
-        name: "til esbjerg.txt",
-        icon: "/txt.png",
-        type: "txt",
-        text: "...Fordi Esbjerg altid glemmer vores koder... \nKode til hemmeligheder: H7",
-      },
-      {
         name: "til bestyrelsen.mp3",
         icon: "/mp3.png",
         type: "audio",
         src: "/papvin.mp3",
+      },
+      {
+        name: "test",
+        icon: "/folder.png",
+        type: "folder",
+        items: [
+          {
+            name: "til esbjerg.txt",
+            icon: "/txt.png",
+            type: "txt",
+            text: "...Fordi Esbjerg altid glemmer vores koder... \nKode til hemmeligheder: H7",
+          },
+        ],
+        hasPass: false,
       },
     ],
     hasPass: false,
