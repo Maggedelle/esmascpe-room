@@ -19,7 +19,7 @@
   }
 
   function enterPass() {
-    if (folder.pass.includes(passInput)) {
+    if (folder.pass.includes(passInput.toLowerCase())) {
       folder.passHasBeenCracked = true;
       let audio = new Audio("/unlock_sound.mp3");
       audio.play();

@@ -136,12 +136,14 @@
       context.beginPath();
       context.lineWidth = 5;
       context.strokeStyle = points[i].color;
+      context.fillStyle = points[i].color;
+      context.fillRect(points[i].x, points[i].y, 100, 100);
       context.rect(points[i].x, points[i].y, 100, 100);
       context.stroke();
       context.font = "60px Georgia";
       context.textAlign = "center";
       context.textBaseline = "middle";
-      context.fillStyle = points[i].color;
+      context.fillStyle = "black";
       context.fillText(
         points[i].label,
         points[i].x + 100 / 2,
@@ -248,7 +250,7 @@
     width="1200"
     height="600"
     bind:this={canvas}
-    style="background: url('/public/grey.jpg')"
+    style="background: url('/public/electrical.jpg');  background-repeat:no-repeat; background-size: cover;"
   />
 </div>
 
