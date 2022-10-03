@@ -86,6 +86,12 @@ export let programs = [
         icon: "/ESMAfaneicon1.png",
         type: "contract",
       },
+      {
+        name: "encrypt.jpg",
+        icon: "/image.png",
+        type: "image",
+        src: "/contracthint.png",
+      },
     ],
     hasPass: true,
     desktop: 1,
