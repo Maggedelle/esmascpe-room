@@ -27,6 +27,11 @@ export let programs = [
         type: "txt",
         text: "Dagsorden for imorgen:\n1. Kedelige møder\n2. Kedelige møder med design teamet\n3. Endnu kedelige møder med marketing\n\nNote: Bed ansatte om ikke at styre Magnus når han spiller Among us, og hører vinyl",
       },
+      {
+        name: "sus",
+        icon: "amongus.png",
+        type: "among-us",
+      },
     ],
     hasPass: true,
     passHasBeenCracked: false,
@@ -113,23 +118,5 @@ export let programs = [
       },
     ],
     hasPass: false,
-  },
-  {
-    x: 2,
-    y: 90,
-    label: "among us",
-    type: "among-us",
-    items: [
-      {
-        name: "VIGTTG!.txt",
-        icon: "/txt.png",
-        type: "txt",
-        text: "en vigtig tekst.",
-      },
-    ],
-    hasPass: true,
-    passHasBeenCracked: false,
-    pass: ["test"],
-    image: "/amongus.png",
   },
 ];
