@@ -1,9 +1,11 @@
 <script lang="ts">
   let playedIntro = false;
   let playingIntro = false;
-  let disableIntro = false;
+  let disableIntro = true;
 
   export let onVideoEnded;
+
+  if (disableIntro) onVideoEnded();
   function onKeyDown(event) {
     if (event.keyCode == 13 || event.keyCode == 32) playingIntro = true;
   }
