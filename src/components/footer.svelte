@@ -8,10 +8,10 @@
   setInterval(() => {
     date.setSeconds(date.getSeconds() - 1);
     formatDate =
-      date.getMinutes() +
+      (date.getMinutes() > 9 ? date.getMinutes() : "0" + date.getMinutes()) +
       ":" +
       (date.getSeconds() > 9 ? date.getSeconds() : "0" + date.getSeconds());
-    if (formatDate == "14:30") {
+    if (formatDate == "00:00") {
       gameOver = true;
     }
   }, 1000);
