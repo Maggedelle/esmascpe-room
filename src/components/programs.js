@@ -14,6 +14,7 @@ export let programs = [
       },
     ],
     hasPass: false,
+    desktop: 0,
   },
   {
     x: 20,
@@ -37,24 +38,7 @@ export let programs = [
     passHasBeenCracked: false,
     pass: ["konge", "kongen", "konger", "king", "kongerne", "kong", "kings"],
     image: "/folder-password.png",
-  },
-  {
-    x: 34,
-    y: 56,
-    label: "hemmeligheder 2",
-    type: "folder",
-    items: [
-      {
-        name: "VIGTTG!.txt",
-        icon: "/txt.png",
-        type: "txt",
-        text: "en vigtig tekst.",
-      },
-    ],
-    hasPass: true,
-    passHasBeenCracked: false,
-    pass: ["test"],
-    image: "/folder-password.png",
+    desktop: 0,
   },
   {
     x: 20,
@@ -71,6 +55,7 @@ export let programs = [
       },
     ],
     hasPass: false,
+    desktop: 1,
   },
   {
     x: 40,
@@ -87,6 +72,7 @@ export let programs = [
       },
     ],
     hasPass: false,
+    desktop: 1,
   },
   {
     x: 80,
@@ -118,5 +104,6 @@ export let programs = [
       },
     ],
     hasPass: false,
+    desktop: 0,
   },
 ];

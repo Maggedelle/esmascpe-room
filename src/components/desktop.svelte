@@ -10,6 +10,8 @@
   let audio = new Audio("/click_sound.mp3");
   let success = new Audio("/unlock_sound.mp3");
 
+  let currentDesktop = 0;
+
   function executeProgram(program) {
     audio.play();
     if (currentProgram == program) {
@@ -23,18 +25,21 @@
     success.play();
     executeProgram(null);
     backgroundType = "green";
+    currentDesktop = 1;
   }
 </script>
 
 <div>
   {#each programs as program}
-    <Program
-      x={program.x}
-      y={program.y}
-      label={program.label}
-      onClick={() => executeProgram(program)}
-      image={program.image}
-    />
+    {#if program.desktop == currentDesktop}
+      <Program
+        x={program.x}
+        y={program.y}
+        label={program.label}
+        onClick={() => executeProgram(program)}
+        image={program.image}
+      />
+    {/if}
   {/each}
 
   {#if currentProgram != null}
