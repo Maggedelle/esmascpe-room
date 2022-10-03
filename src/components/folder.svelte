@@ -35,7 +35,7 @@
   function onItemOpen(item) {
     let audio = new Audio("/click_sound.mp3");
     audio.play();
-    if (item.type != "folder") {
+    if (item.type != "folder" && item.type != "among-us") {
       currentOpenItem = item.name;
     } else {
       onOpenNewFolder(item);
