@@ -5,6 +5,7 @@
   import { programs } from "./programs";
 
   export let backgroundType;
+  export let cracked;
 
   let currentProgram = null;
   let audio = new Audio("/click_sound.mp3");
@@ -48,6 +49,7 @@
         onClose={() => executeProgram(null)}
         folder={currentProgram}
         onOpenNewFolder={executeProgram}
+        bind:cracked
       />
     {/if}
     {#if currentProgram.type == "among-us"}

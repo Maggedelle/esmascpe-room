@@ -7,6 +7,7 @@
   export let onClose;
   export let folder;
   export let onOpenNewFolder;
+  export let cracked;
 
   let currentOpenItem = "";
 
@@ -63,7 +64,7 @@
               <Audioplayer {item} onClose={(e) => closeItem(e)} />
             {/if}
             {#if item.type == "contract"}
-              <Contract {item} onClose={(e) => closeItem(e)} />
+              <Contract bind:cracked {item} onClose={(e) => closeItem(e)} />
             {/if}
           {/if}
         </div>

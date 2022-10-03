@@ -6,6 +6,7 @@
   let currentScreen = "login";
 
   let backgroundType = "grey";
+  let cracked = false;
 
   let introDone = false;
 </script>
@@ -19,9 +20,9 @@
         <Login bind:currentScreen />
       {/if}
       {#if currentScreen == "desktop"}
-        <Desktop bind:backgroundType />
+        <Desktop bind:backgroundType bind:cracked />
       {/if}
-      <Footer />
+      <Footer bind:cracked />
     </div>
   </div>
 {/if}
