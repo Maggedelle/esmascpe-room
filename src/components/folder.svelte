@@ -2,6 +2,7 @@
   import Image from "./image.svelte";
   import Audioplayer from "./audio.svelte";
   import Txt from "./txt.svelte";
+  import Contract from "./contract.svelte";
 
   export let onClose;
   export let folder;
@@ -60,6 +61,9 @@
             {/if}
             {#if item.type == "audio"}
               <Audioplayer {item} onClose={(e) => closeItem(e)} />
+            {/if}
+            {#if item.type == "contract"}
+              <Contract {item} onClose={(e) => closeItem(e)} />
             {/if}
           {/if}
         </div>
