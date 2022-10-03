@@ -75,6 +75,23 @@ export let programs = [
     desktop: 1,
   },
   {
+    x: 40,
+    y: 10,
+    label: "kontrakt",
+    image: "/folder.png",
+    type: "folder",
+    items: [
+      {
+        name: "kontrakt.esma",
+        icon: "/ESMAfaneicon1.png",
+        type: "contract",
+      },
+    ],
+    hasPass: true,
+    desktop: 1,
+    pass: ["1234"],
+  },
+  {
     x: 80,
     y: 80,
     label: "koder",
