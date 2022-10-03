@@ -7,7 +7,7 @@
 
   let formatDate = date.getMinutes() + ":" + date.getSeconds();
   setInterval(() => {
-    if (!cracked) {
+    if (!cracked && !gameOver) {
       date.setSeconds(date.getSeconds() - 1);
       formatDate =
         (date.getMinutes() > 9 ? date.getMinutes() : "0" + date.getMinutes()) +
@@ -26,6 +26,7 @@
     <div class="modal-overlay">
       <div class="modal">
         <h1 class="gameover">Game Over</h1>
+        <p class="gameovertext">Time is up! :\</p>
       </div>
     </div>
   {/if}
@@ -66,5 +67,11 @@
     color: red;
     font-weight: bold;
     font-size: 100px;
+  }
+
+  .gameovertext {
+    color: red;
+    font-weight: bold;
+    font-size: 50px;
   }
 </style>
