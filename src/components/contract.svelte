@@ -1,18 +1,42 @@
 <script>
   export let item;
   export let onClose;
+
+  let pass = ["test"];
+  let passInput = "";
+  let showPassContainer = false;
+  let cracked = false;
+  function onPassEnter() {
+    if (pass.includes(passInput)) {
+      let audio = new Audio("/unlock_sound.mp3");
+      audio.play();
+      cracked = true;
+    } else {
+      passInput = "";
+      let audio = new Audio("/fail_sound.mp3");
+      audio.play();
+    }
+  }
 </script>
 
 <div class="base">
   <div class="close" on:click={onClose}>X</div>
-  <div class="header">KONTRAKT</div>
-  <div class="baseText">
-    1. I skal være mega kedelige <br />
-    2. I skal være grå ik grøn <br />
-    3. I skal styre jer med alt det papvin <br />
-    4. I må ikke tage næsebajere
-  </div>
-  <button class="button">SLET!!</button>
+  {#if !showPassContainer}
+    <div class="header">KONTRAKT</div>
+    <div class="baseText">
+      1. I skal være mega kedelige <br />
+      2. I skal være grå ik grøn <br />
+      3. I skal styre jer med alt det papvin <br />
+      4. I må ikke tage næsebajere
+    </div>
+    <button class="button" on:click={() => (showPassContainer = true)}
+      >SLET!!</button
+    >
+  {:else}
+    Skriv Adgangskode
+    <input bind:value={passInput} type="password" />
+    <button class="button" on:click={onPassEnter}>Slet</button>
+  {/if}
 </div>
 
 <style>
@@ -46,5 +70,6 @@
     min-width: 250px;
     min-height: 100px;
     background-color: red;
+    font-size: 40px;
   }
 </style>
