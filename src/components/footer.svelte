@@ -1,4 +1,5 @@
 <script lang="ts">
+  export let cracked;
   let date = new Date();
   date.setSeconds(55);
   date.setMinutes(14);
@@ -6,13 +7,15 @@
 
   let formatDate = date.getMinutes() + ":" + date.getSeconds();
   setInterval(() => {
-    date.setSeconds(date.getSeconds() - 1);
-    formatDate =
-      (date.getMinutes() > 9 ? date.getMinutes() : "0" + date.getMinutes()) +
-      ":" +
-      (date.getSeconds() > 9 ? date.getSeconds() : "0" + date.getSeconds());
-    if (formatDate == "00:00") {
-      gameOver = true;
+    if (!cracked) {
+      date.setSeconds(date.getSeconds() - 1);
+      formatDate =
+        (date.getMinutes() > 9 ? date.getMinutes() : "0" + date.getMinutes()) +
+        ":" +
+        (date.getSeconds() > 9 ? date.getSeconds() : "0" + date.getSeconds());
+      if (formatDate == "00:00") {
+        gameOver = true;
+      }
     }
   }, 1000);
 </script>

@@ -1,12 +1,12 @@
 <script>
   export let item;
   export let onClose;
+  export let cracked;
 
   let pass = ["1234"];
   //let pass = ["esma vinder beerpong"];
   let passInput = "";
   let showPassContainer = false;
-  let cracked = false;
   function onPassEnter() {
     if (pass.includes(passInput)) {
       let audio = new Audio("/unlock_sound.mp3");
