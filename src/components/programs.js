@@ -68,7 +68,7 @@ export let programs = [
         name: "planer.txt",
         icon: "/txt.png",
         type: "txt",
-        text: "1. Sørg for dårlige modstandere. \n2. Drik tilstrækkelige mængder af alkohol. \n3. Ram kopperne.",
+        text: "1. Sørg for dårlige modstandere. \n2. Drik tilstrækkelige mængder af alkohol. \n3. Ram kopperne. \n Stil kopperne i følgene rækkefølge: rød rød blå blå rød blå",
       },
     ],
     hasPass: false,
@@ -89,7 +89,7 @@ export let programs = [
     ],
     hasPass: true,
     desktop: 1,
-    pass: ["1234"],
+    pass: ["110010"],
   },
   {
     x: 80,
