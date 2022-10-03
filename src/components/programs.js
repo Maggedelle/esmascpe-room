@@ -26,7 +26,7 @@ export let programs = [
         name: "VIGTTG!.txt",
         icon: "/txt.png",
         type: "txt",
-        text: "Dagsorden for imorgen:\n1. Kedelige møder\n2. Kedelige møder med design teamet\n3. Endnu kedelige møder med marketing\n\nNote: Bed ansatte om ikke at styre Magnus når han spiller Among us, og hører vinyl",
+        text: "Dagsorden for imorgen:\n1. Kedelige møder\n2. Kedelige møder med design teamet\n3. Endnu kedelige møder med marketing\n\nNote: Bed ansatte om ikke at forstyre Magnus når han spiller Among us, og hører vinyl",
       },
       {
         name: "sus",
