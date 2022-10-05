@@ -9,10 +9,21 @@
   let cracked = false;
 
   let introDone = false;
+
+  export function playSong(song) {
+    let audio = new Audio(song);
+    audio.volume = 0.1;
+    audio.play();
+  }
+
+  function onVideoEnded() {
+    introDone = true;
+    playSong("/defaultmusic.mp3");
+  }
 </script>
 
 {#if !introDone}
-  <Intro onVideoEnded={() => (introDone = true)} />
+  <Intro {onVideoEnded} />
 {:else}
   <div class={backgroundType}>
     <div class="base">
@@ -20,7 +31,7 @@
         <Login bind:currentScreen />
       {/if}
       {#if currentScreen == "desktop"}
-        <Desktop bind:backgroundType bind:cracked />
+        <Desktop bind:backgroundType bind:cracked {playSong} />
       {/if}
       <Footer bind:cracked />
     </div>

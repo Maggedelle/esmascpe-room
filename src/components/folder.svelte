@@ -18,6 +18,7 @@
     e.stopPropagation();
     currentOpenItem = "";
     let audio = new Audio("/click_sound.mp3");
+    audio.loop = true;
     audio.play();
   }
 

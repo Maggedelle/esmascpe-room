@@ -6,6 +6,7 @@
 
   export let backgroundType;
   export let cracked;
+  export let playSong;
 
   let currentProgram = null;
   let audio = new Audio("/click_sound.mp3");
@@ -27,6 +28,7 @@
     executeProgram(null);
     backgroundType = "green";
     currentDesktop = 1;
+    playSong("/baghjul.mp3");
   }
 </script>
 
