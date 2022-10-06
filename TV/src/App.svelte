@@ -2,6 +2,28 @@
   import Socket from "./components/Socket.svelte";
   let socket;
   export let teams = [];
+
+  function convertTime(time) {
+    let min = 0;
+    let s = "";
+    while (time > 60) {
+      time -= 60;
+      min++;
+    }
+
+    if (min < 10) {
+      s += "0" + min + ":";
+    } else {
+      s += min + ":";
+    }
+    if (time < 10) {
+      s += "0" + time;
+    } else {
+      s += time;
+    }
+
+    return s;
+  }
 </script>
 
 <Socket bind:socket bind:teams />
@@ -19,35 +41,35 @@
     <tr>
       {#each teams as team, i}
         {#if team != null && team.task1 != 0}
-          <td>Task 1 - {team.task1}</td>
+          <td>Task 1 - {convertTime(team.task1)}</td>
         {/if}
       {/each}
     </tr>
     <tr>
       {#each teams as team, i}
         {#if team != null && team.task2 != 0}
-          <td>Task 2 - {team.task2}</td>
+          <td>Task 2 - {convertTime(team.task2)}</td>
         {/if}
       {/each}
     </tr>
     <tr>
       {#each teams as team, i}
         {#if team != null && team.task3 != 0}
-          <td>Task 3 - {team.task3}</td>
+          <td>Task 3 - {convertTime(team.task3)}</td>
         {/if}
       {/each}
     </tr>
     <tr>
       {#each teams as team, i}
         {#if team != null && team.task4 != 0}
-          <td>Task 4 - {team.task4}</td>
+          <td>Task 4 - {convertTime(team.task4)}</td>
         {/if}
       {/each}
     </tr>
     <tr>
       {#each teams as team, i}
         {#if team != null && team.task5 != 0}
-          <td>Task 5 - {team.task5}</td>
+          <td>Task 5 - {convertTime(team.task5)}</td>
         {/if}
       {/each}
     </tr>
@@ -57,7 +79,7 @@
           {#if team.done != 0}
             <td>Færdig - {team.done}</td>
           {:else}
-            <td>{team.currentTime} </td>
+            <td>{convertTime(team.currentTime)} </td>
           {/if}
         {/if}
       {/each}
@@ -88,6 +110,7 @@
   }
 
   .header {
+    margin-top: 70px;
     font-size: 100px;
     color: white;
     font-weight: bold;
