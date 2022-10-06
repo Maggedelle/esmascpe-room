@@ -110,7 +110,7 @@ export let programs = [
         name: "til bestyrelsen.mp3",
         icon: "/mp3.png",
         type: "audio",
-        src: "/papvin.mp3",
+        src: "/bestyrelsen.mp3",
       },
       {
         name: "privat",
