@@ -13,9 +13,13 @@
 
   let socket;
   let team;
+  let audio;
 
   export function playSong(song) {
-    let audio = new Audio(song);
+    if (audio) {
+      audio.pause();
+    }
+    audio = new Audio(song);
     audio.volume = 0.1;
     audio.play();
   }
