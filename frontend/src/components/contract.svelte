@@ -5,12 +5,16 @@
   export let socket;
   export let team;
 
-  let pass = ["1234"];
+  let pass = [
+    "esma vinder beerpong",
+    "esmavinderbeerpong",
+    "esma vinder beer pong",
+  ];
   //let pass = ["esma vinder beerpong"];
   let passInput = "";
   let showPassContainer = false;
   function onPassEnter() {
-    if (pass.includes(passInput)) {
+    if (pass.includes(passInput.toLowerCase())) {
       let audio = new Audio("/unlock_sound.mp3");
       audio.play();
       cracked = true;
