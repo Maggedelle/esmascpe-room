@@ -77,7 +77,7 @@
       {#each teams as team, i}
         {#if team != null}
           {#if team.done != 0}
-            <td>Færdig - {team.done}</td>
+            <td>Færdig - {convertTime(team.done)}</td>
           {:else}
             <td>{convertTime(team.currentTime)} </td>
           {/if}
