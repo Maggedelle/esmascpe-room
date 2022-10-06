@@ -1,7 +1,7 @@
 <script lang="ts">
   let playedIntro = false;
   let playingIntro = false;
-  let disableIntro = false;
+  let disableIntro = true;
 
   export let socket;
   export let onVideoEnded;
